@@ -10,3 +10,12 @@
 具体有什么特效模型，可以查看app.js中，类似app.get('/shaizi', shaizi.shaizi)的字眼，即路由配置
 
 当积累多了之后，能够整理出展示页面。
+
+为了便于浏览，现将可访问的url枚举如下：
+
+http://localhost:3000/shaizi
+http://localhost:3000/movingCloud
+
+PS：再强调一遍，以上url对于path部分是普适的，但对于host和port，即主机和端口部分，请务必考虑你安装启动服务后的实际情况进行修改。
+
+Best wishes!
