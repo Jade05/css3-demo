@@ -1,0 +1,71 @@
+body {
+  overflow-y: hidden;
+}
+header {
+  position: relative;
+  height: 60px;
+  background-color: #1267A1;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 0px;
+  margin-bottom: 20px;
+}
+.container {
+  padding: 0 20px;
+  width: 1200px;
+  margin: 0px auto;
+  -webkit-perspective: 960px;
+  -moz-perspective: 960px;
+  -ms-perspective: 9600px;
+  -o-perspective: 9600px;
+  perspective: 9600px;
+  &-screen {
+    background: white;
+    width: 960px;
+    height: 380px;
+    margin: 0px auto;
+  }
+  &-menu {
+    background: #509ACC;
+    border: 1px solid #8BBCDD;
+    width: 960px;
+    height: 80px;
+    margin: 0px auto;
+  }
+  &-menu-bottom {
+    background: #509ACC;
+    border: 2px solid #8BBCDD;
+    opacity: 0.7;
+    width: 960px;
+    height: 36px;
+    margin: 0px auto;
+    position: relative;
+    top: -3px;
+    left: -32px;
+    z-index: 1000;
+    -webkit-transform: skew(-60deg);
+    -moz-transform: skew(-60deg);
+    -o-transform: skew(-60deg);
+    -ms-transform: skew(-60deg);
+    transform: skew(-60deg);
+  }
+  &-curtain {
+    background: #509ACC;
+    opacity: 0.6;
+    width: 960px;
+    height: 70px;
+    margin: 0px auto;
+    position: relative;
+    top: -8px;
+    left: -63px;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translateZ(100px);
+    -moz-transform: translateZ(100px);
+    -o-transform: translateZ(100px);
+    -ms-transform: translateZ(100px);
+    transform: translateZ(100px);
+  }
+}

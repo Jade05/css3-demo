@@ -4,6 +4,7 @@
  */
 
 var express = require('express');
+var lessMiddleware = require('less-middleware');
 var routes = require('./routes');
 var shaizi = require('./routes/shaizi');
 var movingCloud = require('./routes/movingCloud');
@@ -22,7 +23,8 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(lessMiddleware(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 // development only
 if ('development' == app.get('env')) {
