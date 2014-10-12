@@ -24,7 +24,15 @@
 
             </div>
             <div class="container-menu">
-
+                <ul>
+                    <% for (var i = 0; i < buttonUrl.length; i++) {%>
+                    <li id="<%= buttonUrl[i].id %>">
+                        <a href="#<%= buttonUrl[i].id %>">
+                            <img src="<%= buttonUrl[i].src %>" alt="<%= buttonUrl[i].name %>"/>
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
             </div>
             <div class="container-menu-bottom">
 

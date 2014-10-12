@@ -2,7 +2,8 @@
 /*
  * GET home page.
  */
+var data = require('../mock/data.js');
 
 exports.index = function(req, res){
-  res.render('main', { title: 'Express' });
+  res.render('main', data);
 };
