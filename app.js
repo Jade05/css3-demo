@@ -5,9 +5,7 @@
 
 var express = require('express');
 var lessMiddleware = require('less-middleware');
-var routes = require('./routes');
-var shaizi = require('./routes/shaizi');
-var movingCloud = require('./routes/movingCloud');
+var router = require('./router');
 var http = require('http');
 var path = require('path');
 
@@ -31,9 +29,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.get('/shaizi', shaizi.shaizi);
-app.get('/movingCloud', movingCloud.movingCloud);
+router.init(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
