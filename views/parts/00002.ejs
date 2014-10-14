@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            .clouds {
+                width: 100%;
+                height: 100%;
+            }
+            #cloud {
+                width: 350px;
+                height: 120px;
+
+                background: #f2f9fe;
+                background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+                background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+                background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+                background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+                background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+
+                border-radius: 100px;
+                -webkit-border-radius: 100px;
+                -moz-border-radius: 100px;
+
+                position: relative;
+                left: 0px;
+                top: 0px;
+                margin-top: 120px;
+            }
+
+            #cloud:after, #cloud:before {
+                content: '';
+                position: absolute;
+                background: #f2f9fe;
+                z-index: -1
+            }
+
+            #cloud:after {
+                width: 100px;
+                height: 100px;
+                top: -50px;
+                left: 50px;
+
+                border-radius: 100px;
+                -webkit-border-radius: 100px;
+                -moz-border-radius: 100px;
+            }
+
+            #cloud:before {
+                width: 180px;
+                height: 180px;
+                top: -90px;
+                right: 50px;
+
+                border-radius: 200px;
+                -webkit-border-radius: 200px;
+                -moz-border-radius: 200px;
+            }
+
+            .shadow {
+                width: 350px;
+                position: absolute;
+                bottom: -10px;
+                background: #000;
+                z-index: -1;
+
+                box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+                -moz-box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+                -webkit-box-shadow: 0 0 25px 8px rgba(0, 0, 0, 0.4);
+
+                border-radius: 50%;
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+            }
+        </style>
+        <script>
+            function caculateSinValue(posX) {
+                return Math.sin(posX);
+            }
+            var CloudMove = function() {
+                var left = 0;
+                var top = 0;
+                var step = 45;
+                var factor = 30;
+                var moveDuration = 300;
+                var width = null;
+                var height = null;
+                var minLeft = null;
+                var maxLeft = null;
+                this.init = function(eleContainer, eleTarget) {
+                    width = eleContainer.width();
+                    height = eleContainer.height();
+                    minLeft = 0;
+                    maxLeft = width - eleTarget.width();
+                    this.moveToRight(eleTarget);
+                };
+                this.moveToRight = function(moveTarget) {
+                    var that = this;
+                    var clockRight = setInterval(function() {
+                        left = left + step;
+                        top = factor * caculateSinValue(left);
+                        if (left > maxLeft) {
+                            clearInterval(clockRight);
+                            that.moveToLeft(moveTarget);
+                            return;
+                        }
+                        moveTarget.css('left', left + 'px');
+                        moveTarget.css('top', top + 'px');
+                    }, moveDuration);
+                };
+                this.moveToLeft = function(moveTarget) {
+                    var that = this;
+                    var clockLeft = setInterval(function() {
+                        left = left - step;
+                        top = factor * caculateSinValue(left);
+                        if (left < 0) {
+                            clearInterval(clockLeft);
+                            that.moveToRight(moveTarget);
+                            return;
+                        }
+                        moveTarget.css('left', left + 'px');
+                        moveTarget.css('top', top + 'px' );
+                    }, moveDuration);
+                };
+            };
+            $(function() {
+                var cloud = new CloudMove();
+                cloud.init($('.clouds'), $('#cloud'));
+            });
+        </script>
+    </head>
+    <body>
+      <div class="clouds">
+        <div id = "cloud"><span class='shadow'></span></div>
+      </div>
+    </body>
+</html>

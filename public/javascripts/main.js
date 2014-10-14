@@ -7,7 +7,8 @@ $(function() {
                 hashValue: id
             },
             function(data) {
-                $()
+                console.log(data);
+                var containerScreen = $('.container-screen').html(data);
             }
         );
     });
