@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CSS3 tabs{}</title>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            .tabs-area {
+               margin: 100px auto;
+               width: 100px;
+            }
+            .tabs-group {
+                font-size: 0px;
+            }
+            .tabs-group li a {
+                font-size: 16px;
+            }
+
+            #tab-red a, #tab1:target {
+                color: red;
+            }
+            #tab-blue a, #tab2:target {
+                color: blue;
+            }
+            #tab-yellow a, #tab3:target {
+                color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="tabs-area">
+            <ul class="tabs-group">
+                <li id="tab-red"><a href="#tab1">tab1</a></li>
+                <li id="tab-blue"><a href="#tab2">tab2</a></li>
+                <li id="tab-yellow"><a href="#tab3">tab3</a></li>
+            </ul>
+            <div class="tabs-content">
+                <div id="tab1">tab1-content</div>
+                <div id="tab2">tab2-content</div>
+                <div id="tab3">tab3-content</div>
+            </div>
+        </div>
+    </body>
+</html>
